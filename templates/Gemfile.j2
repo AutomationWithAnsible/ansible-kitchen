@@ -1,0 +1,7 @@
+## Ansible Generated
+source "https://rubygems.org"
+
+{% for gem in kitchen_gems %}
+gem '{{ gem.name }}'{% if gem.version is defined %}, '{{ gem.version}}'{% endif %}
+
+{% endfor %}

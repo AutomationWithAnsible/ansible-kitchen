@@ -1,0 +1,22 @@
+---
+driver                 :
+    name               : localhost
+
+provisioner:
+    name               : ansible_push
+    verbose            : "vvvv"
+    ansible_config     : "test/ansible.cfg"
+    idempotency_test   : True
+
+
+platforms:
+    - name                      : travis
+      provisioner               :
+        raw_arguments           : "-c local --ask-sudo-pass"
+
+
+suites:
+  - name            : emtpy
+    provisioner     :
+        playbook    : "test/application/empty.yml"
+        extra_vars  : { 'kitchen_connection': 'smart' }

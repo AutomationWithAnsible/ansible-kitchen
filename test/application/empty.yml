@@ -1,0 +1,10 @@
+---
+- name         : Empty
+  hosts        : all
+  gather_facts : yes
+  become       : True
+  connection   : "{{ kitchen_connection | default('local') }}"
+  roles        :
+                 - "azavea.virtualbox"
+                 - "ansible-vagrant"
+                 - "ansible-kitchen"

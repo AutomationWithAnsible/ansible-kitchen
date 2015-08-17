@@ -1,0 +1,53 @@
+---
+
+- name: Check pre-requisite Ruby & gem
+  shell: which gem
+  changed_when: False
+  failed_when: False
+  register: gem
+
+- name: Fail if pre-requisite ruby and Gem is not installed
+  fail: msg="Ruby and Gem is needed for test-kitchen. Please install it"
+  when: gem.rc != 0
+
+- name: Check pre-requisite vagrant
+  shell: which vagrant
+  changed_when: False
+  failed_when: False
+  register: vagrant
+
+- name: Fail if pre-requisite vagrant is not installed
+  fail: msg="Vagrant is needed for test-kitchen. Please install it"
+  when: vagrant.rc != 0
+
+- name: Create test-kitchen directory
+  file:
+   path="{{kitchen_dir}}"
+   mode=0775
+   state="directory"
+
+- name: Deploy test-kitchen Gemfile
+  template:
+    src="Gemfile.j2"
+    dest="{{ kitchen_dir }}/Gemfile"
+
+- name: Install bundler
+  gem:
+    name="bundler"
+    user_install="no"
+    state="present"
+
+## New in version 2.0.0.
+# - name: Install test-kitchen
+#   bundler:
+#     state="{{ kitchen_bundler_install }}"
+#     user_install="no"
+#     chdir="{{ kitchen_dir }}"
+
+#environment: smartstack_env_variable
+- name: Install test-kitchen
+  shell: "bundle install"
+  args:
+    chdir: "{{ kitchen_dir }}"
+  register: kitchen_bundler
+  changed_when: kitchen_bundler.stdout.find('Installing') != -1

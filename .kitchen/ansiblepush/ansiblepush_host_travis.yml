@@ -1,0 +1,3 @@
+---
+travis:
+  ansible_ssh_host: travis

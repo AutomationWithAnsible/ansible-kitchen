@@ -1,0 +1,15 @@
+---
+
+kitchen_version             : "1.4.2"
+kitchen_dir                 : /opt/test-kitchen
+
+kitchen_gems                :
+                             - name    : "test-kitchen"
+                               version : "{{ kitchen_version }}"
+                             - name    : "kitchen-ansiblepush"
+                               #version : ""
+                             - name    : "kitchen-vagrant"
+                             - name    : "kitchen-localhost"
+
+kitchen_bundler_install     : "present" # Options 'present' or 'latest'
+                                        # latest will upgrade if not pinned 

@@ -1,0 +1,26 @@
+---
+
+driver                 :
+  name                 : vagrant
+
+provisioner:
+    name               : ansible_push
+    verbose            : "vvvv"
+    ansible_config     : "test/ansible.cfg"
+    idempotency_test   : True
+    #chef_bootstrap_url : False
+    #extra_vars        : "@kitchen_vars.yml"
+
+platforms:
+    - name: ubuntu-14.04
+      driver:
+        box: ubuntu/trusty64
+      customize:
+        cpus   : 2
+        memory : 2048
+
+suites:
+  - name            : empty
+    provisioner     :
+        playbook    : "test/application/empty.yml"
+        extra_vars  : { 'kitchen_connection': 'smart' }

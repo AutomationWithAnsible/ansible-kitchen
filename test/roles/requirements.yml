@@ -1,0 +1,11 @@
+---
+
+- src: git+https://github.com/azavea/ansible-virtualbox.git
+  version: "0.1.0"
+  name: azavea.virtualbox
+  path: .
+
+- src: git+https://github.com/azavea/ansible-vagrant.git
+  version: "0.1.0"
+  name: ansible-vagrant
+  path: .
