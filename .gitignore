@@ -1,3 +1,4 @@
 test/roles/ansible-vagrant
 test/roles/ansible-virtualbox
 test/roles/azavea.virtualbox
+.kitchen
