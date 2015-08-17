@@ -1,3 +1,0 @@
-I, [2015-08-17T17:02:56.581304 #5917]  INFO -- Kitchen: -----> Starting Kitchen (v1.4.2)
-I, [2015-08-17T17:02:57.883025 #5917]  INFO -- Kitchen: -----> Verifying <empty-ubuntu-1404>...
-I, [2015-08-17T17:03:10.715300 #5917]  INFO -- Kitchen: -----> Kitchen is finished. (0m14.13s)
