@@ -12,7 +12,7 @@ install:
   - sudo pip install ansible
   - sudo apt-get install virtualbox vagrant
   - ruby --version
-  - gem install mixlib-shellout -v '2.1.0'
+  - rvm --help
 
 script:
     - ansible --version
