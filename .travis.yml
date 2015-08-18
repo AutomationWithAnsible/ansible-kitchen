@@ -11,6 +11,7 @@ before_install:
 install:
   - sudo pip install ansible
   - sudo apt-get install virtualbox vagrant
+  - ruby --version
 
 script:
     - ansible --version
