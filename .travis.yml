@@ -18,7 +18,7 @@ script:
     #- cd test
     - ansible --version
     - bundle install
-    - KITCHEN_YAML=.kitchen.travis.yml bundle exec kitchen test travis
+    - KITCHEN_YAML=.kitchen_travis.yml bundle exec kitchen test travis
 
 
 after_success:
