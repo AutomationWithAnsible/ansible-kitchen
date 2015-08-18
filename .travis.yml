@@ -10,12 +10,9 @@ before_install:
 
 install:
   - sudo pip install ansible
-  - cd test/roles
-  - ./install_roles.sh
-  - cd ../../
+  - sudo apt-get install virtualbox vagrant
 
 script:
-    #- cd test
     - ansible --version
     - bundle install
     - KITCHEN_YAML=.kitchen_travis.yml bundle exec kitchen test travis
