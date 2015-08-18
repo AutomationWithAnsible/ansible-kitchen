@@ -8,15 +8,11 @@ provisioner:
     ansible_config     : "test/ansible.cfg"
     idempotency_test   : True
 
-
 platforms:
-    - name                      : travis
-      provisioner               :
-        raw_arguments           : "-c local --ask-sudo-pass"
-
+    - name: Travis
 
 suites:
-  - name            : emtpy
+  - name            : empty
     provisioner     :
         playbook    : "test/application/empty.yml"
         extra_vars  : { 'kitchen_connection': 'smart' }
