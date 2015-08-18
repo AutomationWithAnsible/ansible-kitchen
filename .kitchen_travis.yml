@@ -9,7 +9,7 @@ provisioner:
     idempotency_test   : True
 
 platforms:
-    - name: Travis
+    - name: travis
 
 suites:
   - name            : empty
