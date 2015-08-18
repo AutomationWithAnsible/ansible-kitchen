@@ -15,4 +15,3 @@ suites:
   - name            : empty
     provisioner     :
         playbook    : "test/application/empty.yml"
-        extra_vars  : { 'kitchen_connection': 'smart' }
